@@ -274,8 +274,8 @@ h3 {
   min-height: 520px;
   border-radius: 8px;
   background:
-    linear-gradient(rgba(31, 31, 31, 0.04), rgba(31, 31, 31, 0.04)),
-    url("photos/pokraska-fasada-min.jpg") center/cover;
+    linear-gradient(rgba(31, 31, 31, 0.03), rgba(31, 31, 31, 0.08)),
+    url("https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=1800&q=90") center/cover;
   box-shadow: 0 22px 54px rgba(31, 31, 31, 0.12);
 }
 
