@@ -40,8 +40,87 @@ a {
 }
 
 .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
   font-size: 22px;
   font-weight: 700;
+}
+
+.brand-mark {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: var(--text);
+  color: var(--white);
+  font-size: 17px;
+  font-weight: 800;
+  overflow: hidden;
+}
+
+.brand-mark::after {
+  content: "";
+  position: absolute;
+  right: -10px;
+  bottom: 8px;
+  width: 42px;
+  height: 13px;
+  border-radius: 999px;
+  background: var(--terracotta);
+  transform: rotate(-24deg);
+}
+
+.brand-mark {
+  isolation: isolate;
+}
+
+.brand-mark::before {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  border-radius: 50%;
+}
+
+.brand-mark {
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.12);
+}
+
+.brand-mark,
+.brand-mark::before,
+.brand-mark::after {
+  pointer-events: none;
+}
+
+.brand-mark {
+  z-index: 0;
+}
+
+.brand-mark {
+  box-shadow: 0 10px 22px rgba(31, 31, 31, 0.12);
+}
+
+.brand-text {
+  display: grid;
+  gap: 0;
+  line-height: 1.02;
+}
+
+.brand-text span {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.brand-text strong {
+  color: var(--text);
+  font-size: 26px;
+  font-weight: 800;
 }
 
 .social-links {
@@ -119,7 +198,7 @@ p {
 
 h1 {
   margin-bottom: 18px;
-  font-size: 58px;
+  font-size: 52px;
   line-height: 1.05;
 }
 
@@ -136,9 +215,30 @@ h3 {
 
 .hero-text {
   max-width: 520px;
-  margin-bottom: 28px;
+  margin-bottom: 20px;
   color: var(--muted);
   font-size: 18px;
+}
+
+.hero-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.hero-highlights span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: var(--white);
+  border: 1px solid rgba(31, 31, 31, 0.08);
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 700;
+  box-shadow: 0 10px 24px rgba(31, 31, 31, 0.05);
 }
 
 .hero-actions {
@@ -222,20 +322,48 @@ h3 {
 }
 
 .about {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: 34px;
+  align-items: start;
   max-width: 1120px;
   margin: 0 auto;
   padding: 16px 24px 72px;
 }
 
-.about p {
-  max-width: 850px;
+.about-copy {
   margin: 0;
   padding: 34px 38px;
   border-left: 4px solid var(--terracotta);
   background: var(--sand);
   border-radius: 8px;
+}
+
+.about-copy p:last-child {
+  margin-bottom: 0;
   font-size: 22px;
   line-height: 1.45;
+}
+
+.scope-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-top: 8px;
+}
+
+.scope-list span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0 14px;
+  border-radius: 6px;
+  background: var(--white);
+  border: 1px solid rgba(31, 31, 31, 0.08);
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 700;
+  box-shadow: 0 10px 24px rgba(31, 31, 31, 0.05);
 }
 
 .gallery {
@@ -317,7 +445,7 @@ h3 {
   }
 
   h1 {
-    font-size: 42px;
+    font-size: 40px;
   }
 
   .hero-image {
@@ -333,6 +461,11 @@ h3 {
     padding-right: 18px;
     padding-left: 18px;
   }
+
+  .about {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
 }
 
 @media (max-width: 560px) {
@@ -341,7 +474,21 @@ h3 {
   }
 
   .brand {
-    font-size: 21px;
+    gap: 10px;
+  }
+
+  .brand-mark {
+    width: 48px;
+    height: 48px;
+    font-size: 15px;
+  }
+
+  .brand-text strong {
+    font-size: 23px;
+  }
+
+  .brand-text span {
+    font-size: 12px;
   }
 
   .social-links {
@@ -369,7 +516,7 @@ h3 {
   }
 
   h1 {
-    font-size: 34px;
+    font-size: 32px;
     line-height: 1.08;
   }
 
@@ -391,6 +538,11 @@ h3 {
     text-align: center;
   }
 
+  .hero-highlights span {
+    width: 100%;
+    justify-content: center;
+  }
+
   .hero-image {
     min-height: 270px;
   }
@@ -404,9 +556,17 @@ h3 {
     padding: 20px;
   }
 
-  .about p {
+  .about-copy {
     padding: 24px;
+  }
+
+  .about-copy p:last-child {
     font-size: 18px;
+  }
+
+  .scope-list span {
+    min-height: 38px;
+    font-size: 14px;
   }
 
   .gallery {
