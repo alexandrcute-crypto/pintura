@@ -7,6 +7,9 @@
   --terracotta-dark: #a9552b;
   --olive: #6f7d4f;
   --white: #ffffff;
+  --instagram: #4f46e5;
+  --whatsapp: #1f9d55;
+  --tiktok: #111111;
 }
 
 * {
@@ -33,44 +36,60 @@ a {
   gap: 24px;
   max-width: 1120px;
   margin: 0 auto;
-  padding: 20px 24px;
+  padding: 18px 24px;
 }
 
 .brand {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 700;
 }
 
 .social-links {
   display: flex;
-  gap: 8px;
+  gap: 10px;
   color: var(--muted);
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: 700;
 }
 
-.social-links a {
+.social-link {
   display: inline-flex;
   align-items: center;
-  min-height: 38px;
-  padding: 0 12px;
+  min-height: 42px;
+  padding: 0 14px;
   border-radius: 6px;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
-.social-links a:hover {
-  background: rgba(196, 106, 58, 0.1);
-  color: var(--terracotta);
+.social-link:hover {
+  transform: translateY(-1px);
+}
+
+.social-link.instagram:hover {
+  background: rgba(79, 70, 229, 0.12);
+  color: var(--instagram);
+}
+
+.social-link.whatsapp:hover {
+  background: rgba(31, 157, 85, 0.12);
+  color: var(--whatsapp);
+}
+
+.social-link.tiktok:hover {
+  background: rgba(17, 17, 17, 0.1);
+  color: var(--tiktok);
 }
 
 .hero {
-  display: block;
-  max-width: none;
-  min-height: 620px;
-  margin: 0;
-  padding: 0;
-  color: var(--white);
-  background:
-    linear-gradient(90deg, rgba(31, 31, 31, 0.78), rgba(31, 31, 31, 0.34)),
-    url("https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=1600&q=82") center/cover;
+  display: grid;
+  grid-template-columns: minmax(0, 1.04fr) minmax(320px, 0.96fr);
+  align-items: stretch;
+  gap: 34px;
+  max-width: 1120px;
+  min-height: 560px;
+  margin: 0 auto;
+  padding: 42px 24px 72px;
+  color: var(--text);
 }
 
 .hero-content {
@@ -78,9 +97,9 @@ a {
   flex-direction: column;
   justify-content: center;
   max-width: 620px;
-  min-height: 620px;
-  margin-left: calc((100% - min(1120px, calc(100% - 48px))) / 2);
-  padding: 72px 24px;
+  min-height: 520px;
+  margin-left: 0;
+  padding: 46px 0;
 }
 
 .eyebrow {
@@ -118,8 +137,21 @@ h3 {
 .hero-text {
   max-width: 520px;
   margin-bottom: 28px;
-  color: rgba(255, 255, 255, 0.86);
+  color: var(--muted);
   font-size: 18px;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.hero-note {
+  color: var(--muted);
+  font-size: 15px;
+  font-weight: 700;
 }
 
 .primary-button {
@@ -139,7 +171,13 @@ h3 {
 }
 
 .hero-image {
-  display: none;
+  display: block;
+  min-height: 520px;
+  border-radius: 8px;
+  background:
+    linear-gradient(rgba(31, 31, 31, 0.04), rgba(31, 31, 31, 0.04)),
+    url("photos/pokraska-fasada-min.jpg") center/cover;
+  box-shadow: 0 22px 54px rgba(31, 31, 31, 0.12);
 }
 
 .section {
@@ -203,20 +241,35 @@ h3 {
 .gallery {
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: minmax(280px, 34%);
+  grid-auto-columns: minmax(300px, 36%);
   gap: 18px;
   overflow-x: auto;
   padding: 4px 0 14px;
   scroll-snap-type: x mandatory;
 }
 
-.gallery img {
+.gallery-item {
+  margin: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--white);
+  border: 1px solid rgba(31, 31, 31, 0.08);
+  box-shadow: 0 16px 36px rgba(31, 31, 31, 0.08);
+  scroll-snap-align: start;
+}
+
+.gallery-item img {
+  display: block;
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
-  border-radius: 8px;
-  scroll-snap-align: start;
-  box-shadow: 0 16px 36px rgba(31, 31, 31, 0.08);
+}
+
+.gallery-item figcaption {
+  padding: 14px 16px 16px;
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 700;
 }
 
 .contact {
@@ -252,20 +305,23 @@ h3 {
   }
 
   .hero {
-    min-height: 560px;
-    background:
-      linear-gradient(180deg, rgba(31, 31, 31, 0.76), rgba(31, 31, 31, 0.42)),
-      url("https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=1200&q=82") center/cover;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    min-height: 0;
+    padding: 30px 18px 56px;
   }
 
   .hero-content {
-    min-height: 560px;
-    margin-left: 0;
-    padding: 64px 18px;
+    min-height: auto;
+    padding: 24px 0 0;
   }
 
   h1 {
     font-size: 42px;
+  }
+
+  .hero-image {
+    min-height: 340px;
   }
 
   .services-grid {
@@ -285,7 +341,7 @@ h3 {
   }
 
   .brand {
-    font-size: 19px;
+    font-size: 21px;
   }
 
   .social-links {
@@ -296,21 +352,20 @@ h3 {
   }
 
   .social-links a {
-    min-height: 38px;
-    padding: 8px 10px;
+    min-height: 40px;
+    padding: 8px 12px;
     border-radius: 6px;
     background: rgba(255, 255, 255, 0.78);
     border: 1px solid rgba(31, 31, 31, 0.08);
-    font-size: 13px;
+    font-size: 15px;
   }
 
   .hero {
-    min-height: 520px;
+    padding-bottom: 44px;
   }
 
   .hero-content {
-    min-height: 520px;
-    padding: 52px 18px;
+    padding-top: 22px;
   }
 
   h1 {
@@ -331,6 +386,15 @@ h3 {
     min-height: 52px;
   }
 
+  .hero-note {
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero-image {
+    min-height: 270px;
+  }
+
   .services-grid {
     grid-template-columns: 1fr;
   }
@@ -346,7 +410,7 @@ h3 {
   }
 
   .gallery {
-    grid-auto-columns: 82%;
+    grid-auto-columns: 84%;
   }
 
   .contact {

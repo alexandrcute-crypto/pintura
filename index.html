@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pinturas G&V</title>
-  <link rel="preconnect" href="https://images.unsplash.com">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,9 +11,9 @@
     <a class="brand" href="#">Pinturas G&amp;V</a>
 
     <nav class="social-links" aria-label="Redes sociales">
-      <a href="https://www.instagram.com/salarralex/" aria-label="Instagram">Instagram</a>
-      <a href="https://wa.me/34684227362" aria-label="WhatsApp">WhatsApp</a>
-      <a href="https://www.tiktok.com/es/" aria-label="TikTok">TikTok</a>
+      <a class="social-link instagram" href="https://www.instagram.com/salarralex/" aria-label="Instagram">Instagram</a>
+      <a class="social-link whatsapp" href="https://wa.me/34684227362" aria-label="WhatsApp">WhatsApp</a>
+      <a class="social-link tiktok" href="https://www.tiktok.com/es/" aria-label="TikTok">TikTok</a>
     </nav>
   </header>
 
@@ -26,7 +25,10 @@
         <p class="hero-text">
           Pintura interior y exterior con acabados limpios, trato cercano y presupuesto sin compromiso.
         </p>
-        <a class="primary-button" href="#contacto">Solicitar presupuesto</a>
+        <div class="hero-actions">
+          <a class="primary-button" href="#contacto">Solicitar presupuesto</a>
+          <span class="hero-note">Atencion cercana en Espana</span>
+        </div>
       </div>
 
       <div class="hero-image" aria-label="Pintor trabajando en una pared"></div>
@@ -75,10 +77,25 @@
       </div>
 
       <div class="gallery" aria-label="Galeria de trabajos">
-        <img src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=900&q=80" alt="Pintor renovando una pared interior">
-        <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=900&q=80" alt="Herramientas de pintura preparadas">
-        <img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=900&q=80" alt="Pared pintada en una vivienda">
-        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=80" alt="Trabajo de renovacion en interior">
+        <figure class="gallery-item">
+          <img src="photos/pokraska-fasada-min.jpg" alt="Pintura de fachada exterior">
+          <figcaption>Pintura de fachadas</figcaption>
+        </figure>
+
+        <figure class="gallery-item">
+          <img src="photos/604009038_w640_h640_metalloprofilnye-vorota-kip.jpg" alt="Pintura de puertas metalicas verdes">
+          <figcaption>Puertas metalicas</figcaption>
+        </figure>
+
+        <figure class="gallery-item">
+          <img src="photos/korichnevyj-zabor.jpg" alt="Valla exterior pintada en color marron">
+          <figcaption>Vallas exteriores</figcaption>
+        </figure>
+
+        <figure class="gallery-item">
+          <img src="photos/vorota_2020-05-18.jpg" alt="Puertas de garaje con acabado madera">
+          <figcaption>Acabados para garaje</figcaption>
+        </figure>
       </div>
     </section>
 
